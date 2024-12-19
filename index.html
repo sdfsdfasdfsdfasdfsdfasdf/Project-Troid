@@ -75,7 +75,7 @@
     <script>
         function openFullscreen(gamePath) {
             const iframe = document.createElement('iframe');
-            iframe.src = gamePath; // Use the relative path to the game
+            iframe.src = gamePath; // Use the relative path to the game directory
             iframe.className = 'fullscreen';
             iframe.setAttribute('allowfullscreen', '');
             document.body.appendChild(iframe);
@@ -93,7 +93,7 @@
     </header>
     <div class="section">
         <h2>Games</h2>
-        <div class="game-card" onclick="openFullscreen('games/1v1lol/index.html')"> 
+        <div class="game-card" onclick="openFullscreen('games/1v1lol')"> 
             <img src="https://1v1.lol/assets/images/thumbnail.png" alt="1v1.LOL">
             <h3>1v1.LOL</h3>
         </div>
