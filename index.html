@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Troid</title> <!-- change this to the title of the tab you want -->
+    <title>Project Troid</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -73,15 +73,15 @@
         }
     </style>
     <script>
-        function openFullscreen(url) {
+        function openFullscreen(gamePath) {
             const iframe = document.createElement('iframe');
-            iframe.src = url;
+            iframe.src = gamePath; // Use the relative path to the game
             iframe.className = 'fullscreen';
             iframe.setAttribute('allowfullscreen', '');
             document.body.appendChild(iframe);
 
             iframe.onclick = () => {
-                iframe.remove(); // closes the iframe once you click (remove this if not wanted)
+                iframe.remove(); // Closes the iframe when clicked (remove if not needed)
             };
         }
     </script>
@@ -92,7 +92,11 @@
         <button onclick="location.href='apps.html'">Apps</button>
     </header>
     <div class="section">
-        <h2>Games</h2> <!-- change this to what you want above ur games -->
+        <h2>Games</h2>
+        <div class="game-card" onclick="openFullscreen('games/1v1lol/index.html')"> 
+            <img src="https://1v1.lol/assets/images/thumbnail.png" alt="1v1.LOL">
+            <h3>1v1.LOL</h3>
+        </div>
         <div class="game-card" onclick="openFullscreen('https://krunker.io/')"> 
             <img src="https://via.placeholder.com/200x160" alt="Krunker.io">
             <h3>Krunker.io</h3>
@@ -108,11 +112,6 @@
         <div class="game-card" onclick="openFullscreen('https://shellshock.io/')">
             <img src="https://via.placeholder.com/200x160" alt="Shell Shockers">
             <h3>Shell Shockers</h3>
-        </div>
-        <div class="game-card" onclick="openFullscreen('https://diep.io/')">
-            <img src="https://via.placeholder.com/200x160" alt="Diep.io">
-            <h3>Diep.io</h3>
-            <!-- copy one of these to add new games, change link to wanted game, and img to a links favicon (icon on the tab) the alt will just show the text if img doesnt work (change the text to work as well) -->
         </div>
     </div>
     <footer>
