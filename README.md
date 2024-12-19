@@ -13,6 +13,7 @@ A simple gaming website.
 
 ## Contributors
 [![Contrib](https://contrib.rocks/image?repo=sdfsdfasdfsdfasdfsdfasdf/Project-Troid)](https://github.com/sdfsdfasdfsdfasdfsdfasdf/Project-Troid/graphs/contributors)
+[![Contributor: TheunblockedGuy](https://img.shields.io/badge/contributor-TheunblockedGuy-blue.svg)](https://github.com/TheunblockedGuy)
 
 ## Support
 Contact breakingschoolsfilters on tiktok
