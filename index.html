@@ -3,123 +3,118 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Drift Hunters</title>
-    <meta name="description" content="Drift Hunters is an online 3D car drifting game. Race on multiple challenging racetracks and customize your cars.">
+    <title>Games</title>
+    <meta name="description" content="Explore Drift Hunters, a thrilling 3D car drifting game. Race on challenging tracks and customize your car.">
     <script type="text/javascript" src="cloak.js"></script> <!-- Assuming cloak.js is in your project -->
     <meta name="robots" content="noindex,nofollow" />
     <style>
       body {
+        font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
+        background-color: #f4f4f9;
+      }
+
+      header {
+        background-color: #333;
+        color: white;
+        padding: 1rem;
+        text-align: center;
+      }
+
+      .game-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding: 1rem;
+        justify-content: center;
+      }
+
+      .game {
+        background: white;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 300px;
         overflow: hidden;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       }
 
-      .webgl-content * {
-        border: 0;
-        margin: 0;
-        padding: 0;
+      .game img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
       }
 
-      .webgl-content {
-        position: absolute;
+      .game-content {
+        padding: 1rem;
+      }
+
+      .game-title {
+        font-size: 1.5rem;
+        margin: 0 0 0.5rem;
+      }
+
+      .game-description {
+        font-size: 0.9rem;
+        color: #555;
+      }
+
+      .play-button {
+        display: block;
+        text-align: center;
+        margin-top: 1rem;
+        padding: 0.5rem;
+        background-color: #28a745;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+
+      .play-button:hover {
+        background-color: #218838;
+      }
+
+      .game-container {
+        display: none;
+        margin-top: 20px;
+        width: 100%;
+        height: 600px;
+        position: relative;
+      }
+
+      iframe {
         width: 100%;
         height: 100%;
-      }
-
-      #gameContainer {
-        width: 100%;
-        height: 100%;
-      }
-
-      .webgl-content .logo,
-      .progress {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-      }
-
-      .webgl-content .logo {
-        background: url("progressLogo.Light.png") no-repeat center/contain;
-        width: 354px;
-        height: 130px;
-      }
-
-      .webgl-content .progress {
-        height: 18px;
-        width: 141px;
-        margin-top: 90px;
-      }
-
-      .webgl-content .progress .empty {
-        background: url("progressEmpty.Light.png") no-repeat right/cover;
-        float: right;
-        width: 100%;
-        height: 100%;
-        display: inline-block;
-      }
-
-      .webgl-content .progress .full {
-        background: url("progressFull.Light.png") no-repeat left/cover;
-        float: left;
-        width: 0%;
-        height: 100%;
-        display: inline-block;
-      }
-
-      .webgl-content .footer {
-        margin-top: 5px;
-        height: 38px;
-        line-height: 38px;
-        font-family: Helvetica, Verdana, Arial, sans-serif;
-        font-size: 18px;
-      }
-
-      .webgl-content .footer .webgl-logo,
-      .title,
-      .fullscreen {
-        height: 100%;
-        display: inline-block;
-        background: transparent center no-repeat;
-      }
-
-      .webgl-content .footer .webgl-logo {
-        background-image: url("webgl-logo.png");
-        width: 204px;
-        float: left;
-      }
-
-      .webgl-content .footer .title {
-        margin-right: 10px;
-        float: right;
-      }
-
-      .webgl-content .footer .fullscreen {
-        background-image: url("fullscreen.png");
-        width: 38px;
-        float: right;
+        border: none;
       }
     </style>
 </head>
-<body style="margin: 0 auto; overflow: hidden">
+<body>
 
-  <div class="webgl-content">
-    <div id="gameContainer">
-      <!-- Load Drift Hunters game by opening drift-hunters-main -->
-      <iframe src="drift-hunters-main/index.html" style="width: 100%; height: 100%; border: none;"></iframe>
+  <header>
+    <h1>Games</h1>
+  </header>
+
+  <div class="game-list">
+    <!-- Game card -->
+    <div class="game">
+      <img src="https://www.onlinegames.io/media/posts/397/responsive/Drift-Hunters-Pro-xs.jpg" alt="Drift Hunters Pro">
+      <div class="game-content">
+        <h2 class="game-title">Drift Hunters Pro</h2>
+        <p class="game-description">Can you hear the engine moaning? Drift Hunters Pro is a thrilling 3D game with high-quality graphics for those who are fond of drifting & racing. Race on 6 tracks and customize your car.</p>
+        <a href="javascript:void(0);" class="play-button" onclick="openGame()">Play Now</a>
+      </div>
     </div>
   </div>
 
-  <script src="UnityLoader2019.js"></script> <!-- Make sure UnityLoader2019.js is in your project -->
+  <div class="game-container" id="gameContainer">
+    <iframe src="drift-hunters-main/index.html" id="gameIframe"></iframe>
+  </div>
+
   <script>
-    // If you want to initialize Unity WebGL, use this section.
-    // var gameInstance = UnityLoader.instantiate("gameContainer", "dh.json");
-    
-    // Optional: Handle loading progress or other actions if needed.
-    function UnityProgress(gameInstance, progress) {
-      if (!gameInstance.Module) {
-        return;
-      }
+    function openGame() {
+      // Display the game container and load the game inside the iframe
+      document.getElementById("gameContainer").style.display = "block";
     }
   </script>
 
