@@ -6,119 +6,6 @@
     <title>Games</title>
     <meta name="robots" content="noindex,nofollow" />
     <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #4B0082; /* Purple background */
-            color: #ffffff; /* White text */
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            text-align: center;
-            padding: 20px 0;
-            background-color: #6A0DAD; /* Darker purple */
-            color: white;
-        }
-
-        .navigation {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .navigation button {
-            background-color: #8A2BE2;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            margin: 5px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .navigation button:hover {
-            background-color: #9370DB;
-        }
-
-        .search-bar {
-            text-align: center;
-            margin: 20px;
-        }
-
-        .search-bar input {
-            width: 200px; /* Smaller width */
-            padding: 15px; /* Taller height */
-            border-radius: 5px;
-            border: none;
-            font-size: 16px;
-        }
-
-        .game-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
-        }
-
-        .game {
-            background-color: #8A2BE2; /* Bright purple */
-            border-radius: 15px;
-            width: 200px; /* Adjust for rectangle-like shape */
-            text-align: center;
-            padding: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-        }
-
-        .game:hover {
-            background-color: #9370DB; /* Lighter purple */
-        }
-
-        .game img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        .game-title {
-            margin: 10px 0;
-        }
-
-        .game-container {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
-        }
-
-        .game-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: #4B0082;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .close-btn:hover {
-            background-color: #6A0DAD;
-        }
-    </style>
 </head>
 <body>
 
@@ -138,37 +25,37 @@
     <div class="game-list" id="gameList">
         <!-- Basketball Stars Game card -->
         <div class="game" onclick="openGame('basketball-stars/index.html')" data-title="Basketball Stars">
-            <img src="https://www.jimbelushi.ws/unblocked-games/wp-content/uploads/2023/02/Basketball-stars.webp" alt="Basketball Stars">
+            <img src="https://www.jimbelushi.ws/unblocked-games/wp-content/uploads/2023/02/Basketball-stars.webp" alt="Basketball Stars game preview" loading="lazy">
             <h2 class="game-title">Basketball Stars</h2>
         </div>
 
         <!-- Drift Hunters Pro Game card -->
         <div class="game" onclick="openGame('drift-hunters-main/index.html')" data-title="Drift Hunters Pro">
-            <img src="https://www.onlinegames.io/media/posts/397/responsive/Drift-Hunters-Pro-xs.jpg" alt="Drift Hunters Pro">
+            <img src="https://www.onlinegames.io/media/posts/397/responsive/Drift-Hunters-Pro-xs.jpg" alt="Drift Hunters Pro game preview" loading="lazy">
             <h2 class="game-title">Drift Hunters Pro</h2>
         </div>
 
         <!-- 1v1.lol Game card -->
         <div class="game" onclick="openGame('1v1lol/index.html')" data-title="1v1.lol">
-            <img src="https://retro-goal.com/data/image/game/1v1-lol.png" alt="1v1.lol">
+            <img src="https://retro-goal.com/data/image/game/1v1-lol.png" alt="1v1.lol game preview" loading="lazy">
             <h2 class="game-title">1v1.lol</h2>
         </div>
 
         <!-- 1v1.lol old Game card -->
         <div class="game" onclick="openGame('1v1-lol-master/index.html')" data-title="1v1.lol old">
-            <img src="https://retro-goal.com/data/image/game/1v1-lol.png" alt="1v1.lol old">
+            <img src="https://retro-goal.com/data/image/game/1v1-lol.png" alt="1v1.lol old game preview" loading="lazy">
             <h2 class="game-title">1v1.lol old</h2>
         </div>
 
         <!-- Retrobowl Game card -->
         <div class="game" onclick="openGame('retrobowl/index.html')" data-title="Retrobowl">
-            <img src="https://play-lh.googleusercontent.com/WRM5Y1xZmzcCP1YtO5zl6G2g7CU5c5ZfjX4UVrgi1bpNgkfy-wuB-bQx3kkeRfaGYQ" alt="Retrobowl">
+            <img src="https://play-lh.googleusercontent.com/WRM5Y1xZmzcCP1YtO5zl6G2g7CU5c5ZfjX4UVrgi1bpNgkfy-wuB-bQx3kkeRfaGYQ" alt="Retrobowl game preview" loading="lazy">
             <h2 class="game-title">Retrobowl</h2>
         </div>
 
         <!-- Roof Top Snipers 2 Game card -->
         <div class="game" onclick="openGame('rooftopsnipers2/index.html')" data-title="Roof Top Snipers 2">
-            <img src="https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,g=0.5x0.5,f=auto/895b299e7e49558ca383b23648314860.png" alt="Roof Top Snipers 2">
+            <img src="https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,g=0.5x0.5,f=auto/895b299e7e49558ca383b23648314860.png" alt="Roof Top Snipers 2 game preview" loading="lazy">
             <h2 class="game-title">Roof Top Snipers 2</h2>
         </div>
     </div>
@@ -178,29 +65,7 @@
         <iframe id="gameIframe"></iframe>
     </div>
 
-    <script>
-        function openGame(gameUrl) {
-            // Display the game container and load the game inside the iframe
-            document.getElementById("gameContainer").style.display = "block";
-            document.getElementById("gameIframe").src = gameUrl;
-        }
-
-        function closeGame() {
-            // Close the game container
-            document.getElementById("gameContainer").style.display = "none";
-            document.getElementById("gameIframe").src = ""; // Reset iframe src when game is closed
-        }
-
-        function filterGames() {
-            const query = document.getElementById("searchInput").value.toLowerCase();
-            const games = document.querySelectorAll(".game");
-
-            games.forEach(game => {
-                const title = game.getAttribute("data-title").toLowerCase();
-                game.style.display = title.includes(query) ? "block" : "none";
-            });
-        }
-    </script>
+    <script src="script.js"></script>
 
 </body>
 </html>
