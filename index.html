@@ -3,90 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Games</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Drift Hunters</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f9;
-        }
-
-        header {
-            background-color: #333;
-            color: white;
-            padding: 1rem;
-            text-align: center;
-        }
-
-        .game-list {
             display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            padding: 1rem;
             justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
-        .game {
-            background: white;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            width: 300px;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .game iframe {
-            width: 100%;
-            height: 300px;
-        }
-
-        .game-content {
-            padding: 1rem;
-        }
-
-        .game-title {
-            font-size: 1.5rem;
-            margin: 0 0 0.5rem;
-        }
-
-        .game-description {
-            font-size: 0.9rem;
-            color: #555;
-        }
-
-        .play-button {
-            display: block;
-            text-align: center;
-            margin-top: 1rem;
-            padding: 0.5rem;
-            background-color: #28a745;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-        .play-button:hover {
-            background-color: #218838;
+        #unityContainer {
+            width: 960px;
+            height: 600px;
+            background-color: #000;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Games</h1>
-    </header>
+    <h1>Drift Hunters</h1>
+    <div id="unityContainer"></div>
 
-    <div class="game-list">
-        <div class="game">
-            <!-- Link to the extracted game folder -->
-            <a class="play-button" href="dh223-main/index.html" target="_blank">Play Drift Hunters</a>
-            
-            <div class="game-content">
-                <h2 class="game-title">Drift Hunters</h2>
-                <p class="game-description">Drift Hunters is a thrilling drifting game that allows you to master your drifting skills in different cars and tracks. Enjoy smooth gameplay and realistic graphics!</p>
-            </div>
-        </div>
-    </div>
+    <script src="driftHunters-main/Build/UnityLoader.js"></script>
+    <script>
+        var unityInstance = UnityLoader.instantiate("unityContainer", "driftHunters-main/Build/yourgame.json");
+    </script>
 </body>
 </html>
