@@ -1,92 +1,135 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Games</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Drift Hunters</title>
+    <meta name="description" content="Drift Hunters is an online 3D car drifting game. Race on multiple challenging racetracks and customize your cars.">
+    <script type="text/javascript" src="cloak.js"></script> <!-- Assuming cloak.js is in your project -->
+    <meta name="robots" content="noindex,nofollow" />
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-        }
+      body {
+        margin: 0;
+        padding: 0;
+      }
 
-        header {
-            background-color: #333;
-            color: white;
-            padding: 1rem;
-            text-align: center;
-        }
+      .webgl-content * {
+        border: 0;
+        margin: 0;
+        padding: 0;
+      }
 
-        .game-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            padding: 1rem;
-            justify-content: center;
-        }
+      .webgl-content {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
 
-        .game {
-            background: white;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            width: 300px;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
+      .webgl-content #gameContainer {
+        width: 100%;
+        height: 100%;
+      }
 
-        .game img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
+      .webgl-content .logo,
+      .progress {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
 
-        .game-content {
-            padding: 1rem;
-        }
+      .webgl-content .logo {
+        background: url("progressLogo.Light.png") no-repeat center/contain;
+        width: 354px;
+        height: 130px;
+      }
 
-        .game-title {
-            font-size: 1.5rem;
-            margin: 0 0 0.5rem;
-        }
+      .webgl-content .progress {
+        height: 18px;
+        width: 141px;
+        margin-top: 90px;
+      }
 
-        .game-description {
-            font-size: 0.9rem;
-            color: #555;
-        }
+      .webgl-content .progress .empty {
+        background: url("progressEmpty.Light.png") no-repeat right/cover;
+        float: right;
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+      }
 
-        .play-button {
-            display: block;
-            text-align: center;
-            margin-top: 1rem;
-            padding: 0.5rem;
-            background-color: #28a745;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
+      .webgl-content .progress .full {
+        background: url("progressFull.Light.png") no-repeat left/cover;
+        float: left;
+        width: 0%;
+        height: 100%;
+        display: inline-block;
+      }
 
-        .play-button:hover {
-            background-color: #218838;
-        }
+      .webgl-content .footer {
+        margin-top: 5px;
+        height: 38px;
+        line-height: 38px;
+        font-family: Helvetica, Verdana, Arial, sans-serif;
+        font-size: 18px;
+      }
+
+      .webgl-content .footer .webgl-logo,
+      .title,
+      .fullscreen {
+        height: 100%;
+        display: inline-block;
+        background: transparent center no-repeat;
+      }
+
+      .webgl-content .footer .webgl-logo {
+        background-image: url("webgl-logo.png");
+        width: 204px;
+        float: left;
+      }
+
+      .webgl-content .footer .title {
+        margin-right: 10px;
+        float: right;
+      }
+
+      .webgl-content .footer .fullscreen {
+        background-image: url("fullscreen.png");
+        width: 38px;
+        float: right;
+      }
     </style>
 </head>
-<body>
-    <header>
-        <h1>Games</h1>
-    </header>
+<body style="margin: 0 auto; overflow: hidden">
 
-    <div class="game-list">
-        <div class="game">
-            <img src="https://www.onlinegames.io/media/posts/397/responsive/Drift-Hunters-Pro-xs.jpg" alt="Drift Hunters Pro">
-            <div class="game-content">
-                <h2 class="game-title">Drift Hunters Pro</h2>
-                <p class="game-description">Can you hear the engine moaning? Drift Hunters Pro is a thrilling 3D game with high-quality graphics for those who are fond of drifting &amp; racing. You can play solely, or you can play on the servers with other players. In this game, you have 6 different tracks and 10 upgradable vehicles in the garage that you can buy with earnings via drifting.</p>
-                <a class="play-button" href="https://www.onlinegames.io/games/2023/unity/drift-hunters-pro/index.html" target="_blank">Play Now</a>
-            </div>
-        </div>
-    </div>
+  <div class="webgl-content">
+    <div id="gameContainer" style="width: 100%; height: 100%; margin: 0;"></div>
+  </div>
+
+  <script src="UnityLoader2019.js"></script> <!-- Make sure UnityLoader2019.js is in your project -->
+  <script>
+    // Instantiate the Unity WebGL game into the 'gameContainer' div
+    var gameInstance = UnityLoader.instantiate("gameContainer", "dh.json"); // Make sure dh.json points to your Unity build
+
+    // This function handles progress updates during the game loading
+    function UnityProgress(gameInstance, progress) {
+      if (!gameInstance.Module) {
+        return;
+      }
+
+      // Update the loading progress
+      var progressFull = document.querySelector('.webgl-content .progress .full');
+      var progressEmpty = document.querySelector('.webgl-content .progress .empty');
+      
+      // Adjust the progress bar width based on loading progress
+      if (progress < 100) {
+        progressFull.style.width = progress + "%";
+      } else {
+        progressEmpty.style.width = "100%";
+        progressFull.style.width = "100%";
+      }
+    }
+  </script>
+
 </body>
 </html>
