@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Apps</title>
+    <script type="text/javascript" src="cloak.js"></script> <!-- Assuming cloak.js is in your project -->
+    <meta name="robots" content="noindex,nofollow" />
     <link rel="stylesheet" href="style.css">
     <style>
         body {
@@ -41,6 +43,19 @@
             background-color: #9370DB;
         }
 
+        .search-bar {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .search-bar input {
+            width: 200px; /* Smaller width */
+            padding: 15px; /* Taller height */
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+        }
+
         .app-list {
             display: flex;
             flex-wrap: wrap;
@@ -72,9 +87,37 @@
             margin: 10px 0;
         }
 
-        .app-description {
-            font-size: 14px;
-            color: #E0E0E0;
+        .app-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+        }
+
+        .app-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #4B0082;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            background-color: #6A0DAD;
         }
     </style>
 </head>
@@ -85,26 +128,56 @@
     </header>
 
     <div class="navigation">
-        <button onclick="location.href='index.html'">Games</button>
+        <button onclick="location.href='games.html'">Games</button>
         <button onclick="location.href='proxy.html'">Proxy</button>
     </div>
 
-    <div class="app-list">
-        <div class="app" onclick="window.open('https://www.youtube.com', '_blank')">
-            <img src="https://via.placeholder.com/300" alt="YouTube">
-            <h2 class="app-title">YouTube</h2>
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search apps..." oninput="filterApps()">
+    </div>
+
+    <div class="app-list" id="appList">
+        <!-- Example App card -->
+        <div class="app" onclick="openApp('app1.html')" data-title="App 1">
+            <img src="https://via.placeholder.com/200" alt="App 1">
+            <h2 class="app-title">App 1</h2>
         </div>
 
-        <div class="app" onclick="window.open('https://docs.google.com', '_blank')">
-            <img src="https://via.placeholder.com/300" alt="Google Docs">
-            <h2 class="app-title">Google Docs</h2>
-        </div>
-
-        <div class="app" onclick="window.open('https://www.spotify.com', '_blank')">
-            <img src="https://via.placeholder.com/300" alt="Spotify">
-            <h2 class="app-title">Spotify</h2>
+        <!-- Another App card -->
+        <div class="app" onclick="openApp('app2.html')" data-title="App 2">
+            <img src="https://via.placeholder.com/200" alt="App 2">
+            <h2 class="app-title">App 2</h2>
         </div>
     </div>
+
+    <div class="app-container" id="appContainer">
+        <button class="close-btn" onclick="closeApp()">Close App</button>
+        <iframe id="appIframe"></iframe>
+    </div>
+
+    <script>
+        function openApp(appUrl) {
+            // Display the app container and load the app inside the iframe
+            document.getElementById("appContainer").style.display = "block";
+            document.getElementById("appIframe").src = appUrl;
+        }
+
+        function closeApp() {
+            // Close the app container
+            document.getElementById("appContainer").style.display = "none";
+            document.getElementById("appIframe").src = ""; // Reset iframe src when app is closed
+        }
+
+        function filterApps() {
+            const query = document.getElementById("searchInput").value.toLowerCase();
+            const apps = document.querySelectorAll(".app");
+
+            apps.forEach(app => {
+                const title = app.getAttribute("data-title").toLowerCase();
+                app.style.display = title.includes(query) ? "block" : "none";
+            });
+        }
+    </script>
 
 </body>
 </html>
