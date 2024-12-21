@@ -4,112 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Games</title>
-    <meta name="description" content="Explore Drift Hunters and 1v1.LOL, thrilling online games. Play Drift Hunters Pro with high-quality graphics or challenge opponents in 1v1.LOL.">
+    <meta name="description" content="Explore Drift Hunters, a thrilling 3D car drifting game. Race on challenging tracks and customize your car.">
     <script type="text/javascript" src="cloak.js"></script> <!-- Assuming cloak.js is in your project -->
     <meta name="robots" content="noindex,nofollow" />
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f9;
-      }
-
-      header {
-        background-color: #333;
-        color: white;
-        padding: 1rem;
-        text-align: center;
-      }
-
-      .game-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        padding: 1rem;
-        justify-content: center;
-      }
-
-      .game {
-        background: white;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        width: 300px;
-        overflow: hidden;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      }
-
-      .game img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-      }
-
-      .game-content {
-        padding: 1rem;
-      }
-
-      .game-title {
-        font-size: 1.5rem;
-        margin: 0 0 0.5rem;
-      }
-
-      .game-description {
-        font-size: 0.9rem;
-        color: #555;
-      }
-
-      .play-button {
-        display: block;
-        text-align: center;
-        margin-top: 1rem;
-        padding: 0.5rem;
-        background-color: #28a745;
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-      }
-
-      .play-button:hover {
-        background-color: #218838;
-      }
-
-      .game-container {
-        display: none;
-        margin-top: 20px;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-color: rgba(0, 0, 0, 0.8);
-        z-index: 999;
-      }
-
-      iframe {
-        width: 100vw;
-        height: 100vh;
-        border: none;
-      }
-
-      .close-btn {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        padding: 10px;
-        background-color: red;
-        color: white;
-        border: none;
-        cursor: pointer;
-        font-size: 16px;
-        border-radius: 5px;
-      }
-
-      .close-btn:hover {
-        background-color: #cc0000;
-      }
-
-    </style>
+    <link rel="stylesheet" href="style.css"> <!-- Link to the updated style.css -->
 </head>
 <body>
 
@@ -118,50 +16,43 @@
   </header>
 
   <div class="game-list">
-    <!-- Game card for Drift Hunters -->
+    <!-- Drift Hunters Pro Game card -->
     <div class="game">
       <img src="https://www.onlinegames.io/media/posts/397/responsive/Drift-Hunters-Pro-xs.jpg" alt="Drift Hunters Pro">
       <div class="game-content">
         <h2 class="game-title">Drift Hunters Pro</h2>
-        <p class="game-description">Can you hear the engine ? Drift Hunters Pro is a thrilling 3D game with high-quality graphics for those who are fond of drifting & racing. Race on 6 tracks and customize your car.</p>
-        <a href="javascript:void(0);" class="play-button" onclick="openGame('drift')">Play Now</a>
+        <p class="game-description">Can you hear the engine moaning? Drift Hunters Pro is a thrilling 3D game with high-quality graphics for those who are fond of drifting & racing. Race on 6 tracks and customize your car.</p>
+        <a href="javascript:void(0);" class="play-button" onclick="openGame('drift-hunters-main/index.html')">Play Now</a>
       </div>
     </div>
 
-    <!-- Game card for 1v1.LOL -->
+    <!-- 1v1.lol Game card -->
     <div class="game">
-      <img src="https://www.example.com/1v1lol-image.jpg" alt="1v1.LOL">
+      <img src="https://retro-goal.com/data/image/game/1v1-lol.png" alt="1v1.lol">
       <div class="game-content">
-        <h2 class="game-title">1v1.LOL</h2>
-        <p class="game-description">Challenge opponents in a thrilling 1v1 battle in 1v1.LOL. Test your skills in building, shooting, and surviving in this exciting battle royale game.</p>
-        <a href="javascript:void(0);" class="play-button" onclick="openGame('1v1lol')">Play Now</a>
+        <h2 class="game-title">1v1.lol</h2>
+        <p class="game-description">Play 1v1 battles against others! Build, fight, and defeat your opponent in this intense battle royale game.</p>
+        <a href="javascript:void(0);" class="play-button" onclick="openGame('https://1v1.lol/')">Play Now</a>
       </div>
     </div>
   </div>
 
   <div class="game-container" id="gameContainer">
     <button class="close-btn" onclick="closeGame()">Close Game</button>
-    <iframe src="" id="gameIframe"></iframe>
+    <iframe id="gameIframe"></iframe>
   </div>
 
   <script>
-    function openGame(game) {
-      let gameUrl = "";
-      
-      if(game === 'drift') {
-        gameUrl = "drift-hunters-main/index.html"; // URL for Drift Hunters
-      } else if(game === '1v1lol') {
-        gameUrl = "https://1v1.lol"; // URL for 1v1.LOL
-      }
-
-      // Set the iframe source and display the game container
-      document.getElementById("gameIframe").src = gameUrl;
+    function openGame(gameUrl) {
+      // Display the game container and load the game inside the iframe
       document.getElementById("gameContainer").style.display = "block";
+      document.getElementById("gameIframe").src = gameUrl;
     }
 
     function closeGame() {
-      // Hide the game container
+      // Close the game container
       document.getElementById("gameContainer").style.display = "none";
+      document.getElementById("gameIframe").src = ""; // Reset iframe src when game is closed
     }
   </script>
 
