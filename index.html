@@ -32,15 +32,15 @@
             background: white;
             border: 1px solid #ccc;
             border-radius: 5px;
-            width: 100%;
-            max-width: 800px;
+            width: 300px;
             overflow: hidden;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        .game iframe {
+        .game img {
             width: 100%;
-            height: 500px; /* Adjust height to fit the game */
+            height: 200px;
+            object-fit: cover;
         }
 
         .game-content {
@@ -79,11 +79,8 @@
     </header>
 
     <div class="game-list">
-        <!-- Game data object -->
         <div class="game">
-            <!-- Embed the game from the provided URL -->
-            <iframe src="https://www.onlinegames.io/games/2023/unity/drift-hunters-pro/index.html" frameborder="0" allow="gamepad *;"></iframe>
-            
+            <img src="https://www.onlinegames.io/media/posts/397/responsive/Drift-Hunters-Pro-xs.jpg" alt="Drift Hunters Pro">
             <div class="game-content">
                 <h2 class="game-title">Drift Hunters Pro</h2>
                 <p class="game-description">Can you hear the engine moaning? Drift Hunters Pro is a thrilling 3D game with high-quality graphics for those who are fond of drifting &amp; racing. You can play solely, or you can play on the servers with other players. In this game, you have 6 different tracks and 10 upgradable vehicles in the garage that you can buy with earnings via drifting.</p>
