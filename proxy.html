@@ -1,1 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proxy</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .loading-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .loading-description {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 0.5rem;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Proxy</h1>
+    </header>
+
+    <div class="container">
+        <h1 class="loading-title">Loading</h1>
+        <p class="loading-description">Loading the proxy...</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Proxy Service</p>
+    </footer>
+
+    <script type="module">
+        import { loadProxyWorker, storage, loadCJS } from './utils.js';
+
+        const settingsStorage = storage('settings');
+
+        try {
+            document.body.dataset.theme = JSON.parse(localStorage.getItem('settings')).theme || 'system-default';
+        } catch {
+            document.body.dataset.theme = 'system-default';
+            sessionStorage.setItem('settings', JSON.stringify({
+                theme: 'system-default',
+            }));
+        }
+
+        await loadCJS('./baremux/bare.cjs');
+
+        if (location.pathname.slice(1).startsWith((settingsStorage.get('proxy') || '').split(':')[0] || 'uv')) {
+            loadProxyWorker((settingsStorage.get('proxy') || '').split(':')[0] || 'uv')
+                .then(() => location.reload())
+                .catch(() => {
+                    document.querySelector('.loading-title').textContent = 'Error';
+                    document.querySelector('.loading-description').textContent = 'Failed to load proxy';
+                });
+        } else {
+            document.documentElement.innerHTML = await (await fetch('/404')).text();
+            await import('./main.js');
+        }
+    </script>
+</body>
+
+</html>
 
