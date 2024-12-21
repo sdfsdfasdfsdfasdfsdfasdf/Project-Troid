@@ -1,113 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en-us">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Apps</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #4B0082; /* Purple background */
+            color: #ffffff; /* White text */
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
         }
 
         header {
-            background-color: #333;
-            color: white;
-            padding: 1rem;
             text-align: center;
+            padding: 20px 0;
+            background-color: #6A0DAD; /* Darker purple */
+            color: white;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .navigation button {
+            background-color: #8A2BE2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .navigation button:hover {
+            background-color: #9370DB;
         }
 
         .app-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem;
-            padding: 1rem;
             justify-content: center;
+            gap: 20px;
+            padding: 20px;
         }
 
         .app {
-            background: white;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            width: 300px;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: #8A2BE2; /* Bright purple */
+            border-radius: 15px;
+            width: 200px; /* Adjust for rectangle-like shape */
+            text-align: center;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        .app:hover {
+            background-color: #9370DB; /* Lighter purple */
         }
 
         .app img {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .app-content {
-            padding: 1rem;
+            border-radius: 10px;
         }
 
         .app-title {
-            font-size: 1.5rem;
-            margin: 0 0 0.5rem;
+            margin: 10px 0;
         }
 
         .app-description {
-            font-size: 0.9rem;
-            color: #555;
-        }
-
-        .open-button {
-            display: block;
-            text-align: center;
-            margin-top: 1rem;
-            padding: 0.5rem;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-        .open-button:hover {
-            background-color: #0056b3;
+            font-size: 14px;
+            color: #E0E0E0;
         }
     </style>
 </head>
-
 <body>
+
     <header>
         <h1>Apps</h1>
     </header>
 
+    <div class="navigation">
+        <button onclick="location.href='index.html'">Games</button>
+        <button onclick="location.href='proxy.html'">Proxy</button>
+    </div>
+
     <div class="app-list">
-        <div class="app">
+        <div class="app" onclick="window.open('https://www.youtube.com', '_blank')">
             <img src="https://via.placeholder.com/300" alt="YouTube">
-            <div class="app-content">
-                <h2 class="app-title">YouTube</h2>
-                <p class="app-description">Watch your favorite videos and explore trending content on YouTube.</p>
-                <a class="open-button" href="https://www.youtube.com" target="_blank">Open App</a>
-            </div>
+            <h2 class="app-title">YouTube</h2>
         </div>
 
-        <div class="app">
+        <div class="app" onclick="window.open('https://docs.google.com', '_blank')">
             <img src="https://via.placeholder.com/300" alt="Google Docs">
-            <div class="app-content">
-                <h2 class="app-title">Google Docs</h2>
-                <p class="app-description">Create and edit documents online with Google Docs.</p>
-                <a class="open-button" href="https://docs.google.com" target="_blank">Open App</a>
-            </div>
+            <h2 class="app-title">Google Docs</h2>
         </div>
 
-        <div class="app">
+        <div class="app" onclick="window.open('https://www.spotify.com', '_blank')">
             <img src="https://via.placeholder.com/300" alt="Spotify">
-            <div class="app-content">
-                <h2 class="app-title">Spotify</h2>
-                <p class="app-description">Listen to your favorite music and podcasts on Spotify.</p>
-                <a class="open-button" href="https://www.spotify.com" target="_blank">Open App</a>
-            </div>
+            <h2 class="app-title">Spotify</h2>
         </div>
     </div>
-</body>
 
+</body>
 </html>
