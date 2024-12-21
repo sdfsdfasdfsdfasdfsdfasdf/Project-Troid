@@ -26,9 +26,10 @@
         }
 
         .proxy-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
+            width: 344px;
+            height: 98px;
+            border: 1px solid #FFFFFF;
+            border-radius: 5px;
         }
 
         .close-btn {
@@ -51,7 +52,10 @@
 <body>
 
     <div class="proxy-container" id="proxyContainer">
-        <iframe id="proxyIframe" src="Greatsword-V3-main"></iframe>
+        <!-- Embed iframe -->
+        <iframe name="I1" src="http://www.embedproxy.com/go/" width="344" height="98" style="border: 1px solid #FFFFFF" frameborder="0">
+            Your browser does not support inline frames or is currently configured not to display inline frames.
+        </iframe>
         <button class="close-btn" onclick="closeProxy()">Close Proxy</button>
     </div>
 
