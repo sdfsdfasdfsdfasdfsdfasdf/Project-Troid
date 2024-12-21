@@ -32,12 +32,17 @@
         }
 
         .game {
-            background-color: #7B68EE; /* Medium purple */
+            background-color: #8A2BE2; /* Bright purple */
             border-radius: 15px;
             width: 200px; /* Adjust for rectangle-like shape */
             text-align: center;
             padding: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        .game:hover {
+            background-color: #9370DB; /* Lighter purple */
         }
 
         .game img {
@@ -47,21 +52,6 @@
 
         .game-title {
             margin: 10px 0;
-        }
-
-        .play-button {
-            background-color: #4B0082; /* Deep purple */
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .play-button:hover {
-            background-color: #6A0DAD;
         }
 
         .game-container {
@@ -108,17 +98,15 @@
 
     <div class="game-list">
         <!-- Drift Hunters Pro Game card -->
-        <div class="game">
+        <div class="game" onclick="openGame('drift-hunters-main/index.html')">
             <img src="https://www.onlinegames.io/media/posts/397/responsive/Drift-Hunters-Pro-xs.jpg" alt="Drift Hunters Pro">
             <h2 class="game-title">Drift Hunters Pro</h2>
-            <a href="javascript:void(0);" class="play-button" onclick="openGame('drift-hunters-main/index.html')">Play Now</a>
         </div>
 
         <!-- 1v1.lol Game card -->
-        <div class="game">
+        <div class="game" onclick="openGame('https://1v1.lol/')">
             <img src="https://retro-goal.com/data/image/game/1v1-lol.png" alt="1v1.lol">
             <h2 class="game-title">1v1.lol</h2>
-            <a href="javascript:void(0);" class="play-button" onclick="openGame('https://1v1.lol/')">Play Now</a>
         </div>
     </div>
 
