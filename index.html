@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Games</title>
-    <meta name="description" content="Explore Drift Hunters, a thrilling 3D car drifting game. Race on challenging tracks and customize your car.">
+    <meta name="description" content="Explore Drift Hunters and 1v1.LOL, thrilling online games. Play Drift Hunters Pro with high-quality graphics or challenge opponents in 1v1.LOL.">
     <script type="text/javascript" src="cloak.js"></script> <!-- Assuming cloak.js is in your project -->
     <meta name="robots" content="noindex,nofollow" />
     <style>
@@ -118,30 +118,49 @@
   </header>
 
   <div class="game-list">
-    <!-- Game card -->
+    <!-- Game card for Drift Hunters -->
     <div class="game">
       <img src="https://www.onlinegames.io/media/posts/397/responsive/Drift-Hunters-Pro-xs.jpg" alt="Drift Hunters Pro">
       <div class="game-content">
         <h2 class="game-title">Drift Hunters Pro</h2>
-        <p class="game-description">Can you hear the engine moaning? Drift Hunters Pro is a thrilling 3D game with high-quality graphics for those who are fond of drifting & racing. Race on 6 tracks and customize your car.</p>
-        <a href="javascript:void(0);" class="play-button" onclick="openGame()">Play Now</a>
+        <p class="game-description">Can you hear the engine ? Drift Hunters Pro is a thrilling 3D game with high-quality graphics for those who are fond of drifting & racing. Race on 6 tracks and customize your car.</p>
+        <a href="javascript:void(0);" class="play-button" onclick="openGame('drift')">Play Now</a>
+      </div>
+    </div>
+
+    <!-- Game card for 1v1.LOL -->
+    <div class="game">
+      <img src="https://www.example.com/1v1lol-image.jpg" alt="1v1.LOL">
+      <div class="game-content">
+        <h2 class="game-title">1v1.LOL</h2>
+        <p class="game-description">Challenge opponents in a thrilling 1v1 battle in 1v1.LOL. Test your skills in building, shooting, and surviving in this exciting battle royale game.</p>
+        <a href="javascript:void(0);" class="play-button" onclick="openGame('1v1lol')">Play Now</a>
       </div>
     </div>
   </div>
 
   <div class="game-container" id="gameContainer">
     <button class="close-btn" onclick="closeGame()">Close Game</button>
-    <iframe src="drift-hunters-main/index.html" id="gameIframe"></iframe>
+    <iframe src="" id="gameIframe"></iframe>
   </div>
 
   <script>
-    function openGame() {
-      // Display the game container and load the game inside the iframe
+    function openGame(game) {
+      let gameUrl = "";
+      
+      if(game === 'drift') {
+        gameUrl = "drift-hunters-main/index.html"; // URL for Drift Hunters
+      } else if(game === '1v1lol') {
+        gameUrl = "https://1v1.lol"; // URL for 1v1.LOL
+      }
+
+      // Set the iframe source and display the game container
+      document.getElementById("gameIframe").src = gameUrl;
       document.getElementById("gameContainer").style.display = "block";
     }
 
     function closeGame() {
-      // Close the game container
+      // Hide the game container
       document.getElementById("gameContainer").style.display = "none";
     }
   </script>
