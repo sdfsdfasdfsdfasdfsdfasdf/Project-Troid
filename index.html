@@ -11,6 +11,7 @@
       body {
         margin: 0;
         padding: 0;
+        overflow: hidden;
       }
 
       .webgl-content * {
@@ -25,7 +26,7 @@
         height: 100%;
       }
 
-      .webgl-content #gameContainer {
+      #gameContainer {
         width: 100%;
         height: 100%;
       }
@@ -103,30 +104,21 @@
 <body style="margin: 0 auto; overflow: hidden">
 
   <div class="webgl-content">
-    <div id="gameContainer" style="width: 100%; height: 100%; margin: 0;"></div>
+    <div id="gameContainer">
+      <!-- Load Drift Hunters game by opening drift-hunters-main -->
+      <iframe src="drift-hunters-main/index.html" style="width: 100%; height: 100%; border: none;"></iframe>
+    </div>
   </div>
 
   <script src="UnityLoader2019.js"></script> <!-- Make sure UnityLoader2019.js is in your project -->
   <script>
-    // Instantiate the Unity WebGL game into the 'gameContainer' div
-    var gameInstance = UnityLoader.instantiate("gameContainer", "dh.json"); // Make sure dh.json points to your Unity build
-
-    // This function handles progress updates during the game loading
+    // If you want to initialize Unity WebGL, use this section.
+    // var gameInstance = UnityLoader.instantiate("gameContainer", "dh.json");
+    
+    // Optional: Handle loading progress or other actions if needed.
     function UnityProgress(gameInstance, progress) {
       if (!gameInstance.Module) {
         return;
-      }
-
-      // Update the loading progress
-      var progressFull = document.querySelector('.webgl-content .progress .full');
-      var progressEmpty = document.querySelector('.webgl-content .progress .empty');
-      
-      // Adjust the progress bar width based on loading progress
-      if (progress < 100) {
-        progressFull.style.width = progress + "%";
-      } else {
-        progressEmpty.style.width = "100%";
-        progressFull.style.width = "100%";
       }
     }
   </script>
