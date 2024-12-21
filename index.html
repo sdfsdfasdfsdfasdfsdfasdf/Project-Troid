@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Games</title>
     <meta name="description" content="Explore Drift Hunters, a thrilling 3D car drifting game. Race on challenging tracks and customize your car.">
-    <script type="text/javascript" src="particles.js"></script> <!-- Ensure correct path -->
+    <!-- Make sure this path points directly to the correct location of particles.js in the same folder -->
+    <script type="text/javascript" src="particles.js"></script> 
     <script type="text/javascript" src="cloak.js"></script> <!-- Assuming cloak.js is in your project -->
     <meta name="robots" content="noindex,nofollow" />
     <link rel="stylesheet" href="style.css">
@@ -15,49 +16,97 @@
     <!-- Particles container -->
     <div id="particles-js"></div>
 
-    <!-- Center content: Welcome message and search bar -->
-    <div class="center">
-        <h1 id="title">Welcome to the Game</h1>
-        <p id="subtitle">Find your favorite games!</p>
-    </div>
-    
-    <div class="center">
-        <input type="text" id="searchInput" placeholder="Search games" />
-    </div>
-    
-    <!-- Games container -->
-    <div id="gamesContainer"></div>
+    <header>
+        <h1>Games</h1>
+    </header>
 
-    <!-- Footer -->
-    <div class="footer">
-        <a style="font-weight: 700">a site by</a>
-        <a style="font-weight: 700" class="link" href="https://dsc.gg/parcoil">parcoil network</a>
+    <div class="game-list">
+        <!-- Drift Hunters Pro Game card -->
+        <div class="game">
+            <img src="https://www.onlinegames.io/media/posts/397/responsive/Drift-Hunters-Pro-xs.jpg" alt="Drift Hunters Pro">
+            <div class="game-content">
+                <h2 class="game-title">Drift Hunters Pro</h2>
+                <p class="game-description">Can you hear the engine moaning? Drift Hunters Pro is a thrilling 3D game with high-quality graphics for those who are fond of drifting & racing. Race on 6 tracks and customize your car.</p>
+                <a href="javascript:void(0);" class="play-button" onclick="openGame('drift-hunters-main/index.html')">Play Now</a>
+            </div>
+        </div>
+
+        <!-- 1v1.lol Game card -->
+        <div class="game">
+            <img src="https://retro-goal.com/data/image/game/1v1-lol.png" alt="1v1.lol">
+            <div class="game-content">
+                <h2 class="game-title">1v1.lol</h2>
+                <p class="game-description">Play 1v1 battles against others! Build, fight, and defeat your opponent in this intense battle royale game.</p>
+                <a href="javascript:void(0);" class="play-button" onclick="openGame('https://1v1.lol/')">Play Now</a>
+            </div>
+        </div>
     </div>
 
-    <!-- Particle initialization script -->
+    <div class="game-container" id="gameContainer">
+        <button class="close-btn" onclick="closeGame()">Close Game</button>
+        <iframe id="gameIframe"></iframe>
+    </div>
+
     <script>
+        function openGame(gameUrl) {
+            // Display the game container and load the game inside the iframe
+            document.getElementById("gameContainer").style.display = "block";
+            document.getElementById("gameIframe").src = gameUrl;
+        }
+
+        function closeGame() {
+            // Close the game container
+            document.getElementById("gameContainer").style.display = "none";
+            document.getElementById("gameIframe").src = ""; // Reset iframe src when game is closed
+        }
+
+        // Initialize particles.js
         particlesJS("particles-js", {
             particles: {
                 number: {
                     value: 160,
-                    density: { enable: true, value_area: 800 }
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
                 },
-                color: { value: "#ffffff" },
+                color: {
+                    value: "#ffffff"
+                },
                 shape: {
                     type: "circle",
-                    stroke: { width: 0, color: "#000000" },
-                    polygon: { nb_sides: 5 },
-                    image: { src: "img/github.svg", width: 100, height: 100 },
+                    stroke: {
+                        width: 0,
+                        color: "#000000"
+                    },
+                    polygon: {
+                        nb_sides: 5
+                    },
+                    image: {
+                        src: "img/github.svg", // Ensure this path is valid
+                        width: 100,
+                        height: 100
+                    }
                 },
                 opacity: {
                     value: 1,
                     random: true,
-                    anim: { enable: false, speed: 1, opacity_min: 0, sync: false }
+                    anim: {
+                        enable: false,
+                        speed: 1,
+                        opacity_min: 0,
+                        sync: false
+                    }
                 },
                 size: {
                     value: 3,
                     random: true,
-                    anim: { enable: false, speed: 4, size_min: 0.3, sync: false }
+                    anim: {
+                        enable: false,
+                        speed: 4,
+                        size_min: 0.3,
+                        sync: false
+                    }
                 },
                 line_linked: {
                     enable: false,
@@ -74,22 +123,50 @@
                     straight: false,
                     out_mode: "out",
                     bounce: false,
-                    attract: { enable: false, rotateX: 600, rotateY: 600 }
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 600
+                    }
                 }
             },
             interactivity: {
                 detect_on: "canvas",
                 events: {
-                    onhover: { enable: false, mode: "repulse" },
-                    onclick: { enable: true, mode: "push" },
+                    onhover: {
+                        enable: false,
+                        mode: "repulse"
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: "push"
+                    },
                     resize: true
                 },
                 modes: {
-                    grab: { distance: 400, line_linked: { opacity: 1 } },
-                    bubble: { distance: 250, size: 0, duration: 2, opacity: 0, speed: 3 },
-                    repulse: { distance: 400, duration: 0.4 },
-                    push: { particles_nb: 4 },
-                    remove: { particles_nb: 2 }
+                    grab: {
+                        distance: 400,
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+                    bubble: {
+                        distance: 250,
+                        size: 0,
+                        duration: 2,
+                        opacity: 0,
+                        speed: 3
+                    },
+                    repulse: {
+                        distance: 400,
+                        duration: 0.4
+                    },
+                    push: {
+                        particles_nb: 4
+                    },
+                    remove: {
+                        particles_nb: 2
+                    }
                 }
             },
             retina_detect: true
