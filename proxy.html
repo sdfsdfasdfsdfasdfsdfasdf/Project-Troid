@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Proxy</title>
-    <script type="text/javascript" src="cloak.js"></script> <!-- Assuming cloak.js is in your project -->
     <meta name="robots" content="noindex,nofollow" />
     <link rel="stylesheet" href="style.css">
     <style>
@@ -42,6 +41,7 @@
             padding: 10px 15px;
             border-radius: 5px;
             cursor: pointer;
+            z-index: 10; /* Ensure button is on top */
         }
 
         .close-btn:hover {
@@ -53,7 +53,7 @@
 
     <div class="proxy-container" id="proxyContainer">
         <!-- Embed iframe -->
-        <iframe name="I1" src="http://www.embedproxy.com/go/" width="344" height="98" style="border: 1px solid #FFFFFF" frameborder="0">
+        <iframe name="I1" src="https://www.embedproxy.com/go/" width="344" height="98" style="border: 1px solid #FFFFFF" frameborder="0">
             Your browser does not support inline frames or is currently configured not to display inline frames.
         </iframe>
         <button class="close-btn" onclick="closeProxy()">Close Proxy</button>
