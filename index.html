@@ -4,17 +4,103 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Games</title>
-    <meta name="description" content="Explore Drift Hunters, a thrilling 3D car drifting game. Race on challenging tracks and customize your car.">
-    <!-- Make sure this path points directly to the correct location of particles.js in the same folder -->
-    <script type="text/javascript" src="particles.js"></script> 
     <script type="text/javascript" src="cloak.js"></script> <!-- Assuming cloak.js is in your project -->
     <meta name="robots" content="noindex,nofollow" />
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #4B0082; /* Purple background */
+            color: #ffffff; /* White text */
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #6A0DAD; /* Darker purple */
+            color: white;
+        }
+
+        .game-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .game {
+            background-color: #7B68EE; /* Medium purple */
+            border-radius: 15px;
+            width: 200px; /* Adjust for rectangle-like shape */
+            text-align: center;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .game img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .game-title {
+            margin: 10px 0;
+        }
+
+        .play-button {
+            background-color: #4B0082; /* Deep purple */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .play-button:hover {
+            background-color: #6A0DAD;
+        }
+
+        .game-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+        }
+
+        .game-container iframe {
+            width: 80%;
+            height: 80%;
+            border: none;
+            margin: 5% auto;
+            display: block;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #4B0082;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            background-color: #6A0DAD;
+        }
+    </style>
 </head>
 <body>
-
-    <!-- Particles container -->
-    <div id="particles-js"></div>
 
     <header>
         <h1>Games</h1>
@@ -24,21 +110,15 @@
         <!-- Drift Hunters Pro Game card -->
         <div class="game">
             <img src="https://www.onlinegames.io/media/posts/397/responsive/Drift-Hunters-Pro-xs.jpg" alt="Drift Hunters Pro">
-            <div class="game-content">
-                <h2 class="game-title">Drift Hunters Pro</h2>
-                <p class="game-description">Can you hear the engine moaning? Drift Hunters Pro is a thrilling 3D game with high-quality graphics for those who are fond of drifting & racing. Race on 6 tracks and customize your car.</p>
-                <a href="javascript:void(0);" class="play-button" onclick="openGame('drift-hunters-main/index.html')">Play Now</a>
-            </div>
+            <h2 class="game-title">Drift Hunters Pro</h2>
+            <a href="javascript:void(0);" class="play-button" onclick="openGame('drift-hunters-main/index.html')">Play Now</a>
         </div>
 
         <!-- 1v1.lol Game card -->
         <div class="game">
             <img src="https://retro-goal.com/data/image/game/1v1-lol.png" alt="1v1.lol">
-            <div class="game-content">
-                <h2 class="game-title">1v1.lol</h2>
-                <p class="game-description">Play 1v1 battles against others! Build, fight, and defeat your opponent in this intense battle royale game.</p>
-                <a href="javascript:void(0);" class="play-button" onclick="openGame('https://1v1.lol/')">Play Now</a>
-            </div>
+            <h2 class="game-title">1v1.lol</h2>
+            <a href="javascript:void(0);" class="play-button" onclick="openGame('https://1v1.lol/')">Play Now</a>
         </div>
     </div>
 
@@ -59,118 +139,6 @@
             document.getElementById("gameContainer").style.display = "none";
             document.getElementById("gameIframe").src = ""; // Reset iframe src when game is closed
         }
-
-        // Initialize particles.js
-        particlesJS("particles-js", {
-            particles: {
-                number: {
-                    value: 160,
-                    density: {
-                        enable: true,
-                        value_area: 800
-                    }
-                },
-                color: {
-                    value: "#ffffff"
-                },
-                shape: {
-                    type: "circle",
-                    stroke: {
-                        width: 0,
-                        color: "#000000"
-                    },
-                    polygon: {
-                        nb_sides: 5
-                    },
-                    image: {
-                        src: "img/github.svg", // Ensure this path is valid
-                        width: 100,
-                        height: 100
-                    }
-                },
-                opacity: {
-                    value: 1,
-                    random: true,
-                    anim: {
-                        enable: false,
-                        speed: 1,
-                        opacity_min: 0,
-                        sync: false
-                    }
-                },
-                size: {
-                    value: 3,
-                    random: true,
-                    anim: {
-                        enable: false,
-                        speed: 4,
-                        size_min: 0.3,
-                        sync: false
-                    }
-                },
-                line_linked: {
-                    enable: false,
-                    distance: 150,
-                    color: "#ffffff",
-                    opacity: 0.4,
-                    width: 1
-                },
-                move: {
-                    enable: true,
-                    speed: 1,
-                    direction: "none",
-                    random: true,
-                    straight: false,
-                    out_mode: "out",
-                    bounce: false,
-                    attract: {
-                        enable: false,
-                        rotateX: 600,
-                        rotateY: 600
-                    }
-                }
-            },
-            interactivity: {
-                detect_on: "canvas",
-                events: {
-                    onhover: {
-                        enable: false,
-                        mode: "repulse"
-                    },
-                    onclick: {
-                        enable: true,
-                        mode: "push"
-                    },
-                    resize: true
-                },
-                modes: {
-                    grab: {
-                        distance: 400,
-                        line_linked: {
-                            opacity: 1
-                        }
-                    },
-                    bubble: {
-                        distance: 250,
-                        size: 0,
-                        duration: 2,
-                        opacity: 0,
-                        speed: 3
-                    },
-                    repulse: {
-                        distance: 400,
-                        duration: 0.4
-                    },
-                    push: {
-                        particles_nb: 4
-                    },
-                    remove: {
-                        particles_nb: 2
-                    }
-                }
-            },
-            retina_detect: true
-        });
     </script>
 
 </body>
