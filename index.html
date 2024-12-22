@@ -227,11 +227,21 @@
             document.getElementById("gameIframe").src = gameUrl;
         }
 
-        function closeGame() {
-            // Close the game container
-            document.getElementById("gameContainer").style.display = "none";
-            document.getElementById("gameIframe").src = ""; // Reset iframe src when game is closed
-        }
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: transparent; /* Transparent background */
+    color: red; /* Red "X" */
+    border: none;
+    font-size: 30px; /* Bigger "X" */
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: darkred; /* Darker red on hover */
+}
+
 
         function filterGames() {
             const query = document.getElementById("searchInput").value.toLowerCase();
