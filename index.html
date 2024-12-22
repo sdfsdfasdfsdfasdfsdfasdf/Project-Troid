@@ -136,7 +136,6 @@
     </div>
 
     <div class="game-list" id="gameList">
-        <!-- Existing game cards -->
         <!-- Basketball Stars Game card -->
         <div class="game" onclick="openGame('basketball-stars/index.html')" data-title="Basketball Stars">
             <img src="https://www.jimbelushi.ws/unblocked-games/wp-content/uploads/2023/02/Basketball-stars.webp" alt="Basketball Stars">
@@ -192,15 +191,22 @@
         </div>
     </div>
 
+    <div class="game-container" id="gameContainer">
+        <button class="close-btn" onclick="closeGame()">Close Game</button>
+        <iframe id="gameIframe"></iframe>
+    </div>
+
     <script>
         function openGame(gameUrl) {
+            // Display the game container and load the game inside the iframe
             document.getElementById("gameContainer").style.display = "block";
             document.getElementById("gameIframe").src = gameUrl;
         }
 
         function closeGame() {
+            // Close the game container
             document.getElementById("gameContainer").style.display = "none";
-            document.getElementById("gameIframe").src = "";
+            document.getElementById("gameIframe").src = ""; // Reset iframe src when game is closed
         }
 
         function filterGames() {
@@ -212,23 +218,7 @@
                 game.style.display = title.includes(query) ? "block" : "none";
             });
         }
-
-        // Sort games alphabetically
-        function sortGamesAlphabetically() {
-            const gameList = document.getElementById("gameList");
-            const games = Array.from(gameList.children);
-
-            games.sort((a, b) => {
-                const titleA = a.getAttribute("data-title").toLowerCase();
-                const titleB = b.getAttribute("data-title").toLowerCase();
-                return titleA.localeCompare(titleB);
-            });
-
-            games.forEach(game => gameList.appendChild(game)); // Reappend in sorted order
-        }
-
-        // Sort games on page load
-        document.addEventListener("DOMContentLoaded", sortGamesAlphabetically);
     </script>
+
 </body>
 </html>
