@@ -9,7 +9,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #4B0082; /* Purple background */
+            background-color: #2E004F; /* Darker purple background */
             color: #ffffff; /* White text */
             margin: 0;
             padding: 0;
@@ -18,7 +18,7 @@
         header {
             text-align: center;
             padding: 20px 0;
-            background-color: #6A0DAD; /* Darker purple */
+            background-color: #4B0082; /* Purple */
             color: white;
         }
 
@@ -28,7 +28,7 @@
         }
 
         .navigation button {
-            background-color: #8A2BE2;
+            background-color: #5A008F; /* Darker purple */
             color: white;
             border: none;
             padding: 10px 20px;
@@ -39,7 +39,7 @@
         }
 
         .navigation button:hover {
-            background-color: #9370DB;
+            background-color: #7A1DBB; /* Slightly lighter purple */
         }
 
         .search-bar {
@@ -48,8 +48,8 @@
         }
 
         .search-bar input {
-            width: 200px; /* Smaller width */
-            padding: 15px; /* Taller height */
+            width: 200px;
+            padding: 15px;
             border-radius: 5px;
             border: none;
             font-size: 16px;
@@ -64,17 +64,17 @@
         }
 
         .game {
-            background-color: #8A2BE2; /* Bright purple */
+            background-color: #4B0082; /* Purple */
             border-radius: 15px;
-            width: 200px; /* Adjust for rectangle-like shape */
+            width: 200px;
             text-align: center;
             padding: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
             cursor: pointer;
         }
 
         .game:hover {
-            background-color: #9370DB; /* Lighter purple */
+            background-color: #7A1DBB; /* Lighter purple on hover */
         }
 
         .game img {
@@ -107,16 +107,15 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            background-color: #4B0082;
-            color: white;
+            background-color: transparent; /* Transparent */
+            color: white; /* White X */
             border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
+            font-size: 30px; /* Bigger X */
             cursor: pointer;
         }
 
         .close-btn:hover {
-            background-color: #6A0DAD;
+            color: #FF7F50; /* Coral on hover */
         }
     </style>
 </head>
@@ -136,85 +135,73 @@
     </div>
 
     <div class="game-list" id="gameList">
-<!-- 1v1.lol Game card -->
-<div class="game" onclick="openGame('1v1lol/index.html')" data-title="1v1.lol">
-    <img src="https://retro-goal.com/data/image/game/1v1-lol.png" alt="1v1.lol">
-    <h2 class="game-title">1v1.lol</h2>
-</div>
+        <!-- Game cards -->
+        <div class="game" onclick="openGame('1v1lol/index.html')" data-title="1v1.lol">
+            <img src="https://retro-goal.com/data/image/game/1v1-lol.png" alt="1v1.lol">
+            <h2 class="game-title">1v1.lol</h2>
+        </div>
 
-<!-- 1v1.lol old Game card -->
-<div class="game" onclick="openGame('1v1-lol-master/index.html')" data-title="1v1.lol old">
-    <img src="https://retro-goal.com/data/image/game/1v1-lol.png" alt="1v1.lol old">
-    <h2 class="game-title">1v1.lol old</h2>
-</div>
+        <div class="game" onclick="openGame('1v1-lol-master/index.html')" data-title="1v1.lol old">
+            <img src="https://retro-goal.com/data/image/game/1v1-lol.png" alt="1v1.lol old">
+            <h2 class="game-title">1v1.lol old</h2>
+        </div>
 
-<!-- Basketball Stars Game card -->
-<div class="game" onclick="openGame('basketball-stars/index.html')" data-title="Basketball Stars">
-    <img src="https://www.jimbelushi.ws/unblocked-games/wp-content/uploads/2023/02/Basketball-stars.webp" alt="Basketball Stars">
-    <h2 class="game-title">Basketball Stars</h2>
-</div>
+        <div class="game" onclick="openGame('basketball-stars/index.html')" data-title="Basketball Stars">
+            <img src="https://www.jimbelushi.ws/unblocked-games/wp-content/uploads/2023/02/Basketball-stars.webp" alt="Basketball Stars">
+            <h2 class="game-title">Basketball Stars</h2>
+        </div>
 
-<!-- Core Ball Game card -->
-<div class="game" onclick="openGame('core-ball/index.html')" data-title="Core Ball">
-    <img src="https://th.bing.com/th/id/OIP.zUYXNC_ofaOxr4E-B0PsHQHaHa?rs=1&pid=ImgDetMain" alt="Core Ball">
-    <h2 class="game-title">Core Ball</h2>
-</div>
+        <div class="game" onclick="openGame('core-ball/index.html')" data-title="Core Ball">
+            <img src="https://th.bing.com/th/id/OIP.zUYXNC_ofaOxr4E-B0PsHQHaHa?rs=1&pid=ImgDetMain" alt="Core Ball">
+            <h2 class="game-title">Core Ball</h2>
+        </div>
 
-<!-- Drive Mad Game card -->
-<div class="game" onclick="openGame('drive-mad/index.html')" data-title="Drive Mad">
-    <img src="https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,f=auto/f8a2160e52333ee0d44ec19e8ca65139.png" alt="Drive Mad">
-    <h2 class="game-title">Drive Mad</h2>
-</div>
+        <div class="game" onclick="openGame('drive-mad/index.html')" data-title="Drive Mad">
+            <img src="https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,f=auto/f8a2160e52333ee0d44ec19e8ca65139.png" alt="Drive Mad">
+            <h2 class="game-title">Drive Mad</h2>
+        </div>
 
-<!-- Drift Hunters Pro Game card -->
-<div class="game" onclick="openGame('drift-hunters-main/index.html')" data-title="Drift Hunters Pro">
-    <img src="https://www.onlinegames.io/media/posts/397/responsive/Drift-Hunters-Pro-xs.jpg" alt="Drift Hunters Pro">
-    <h2 class="game-title">Drift Hunters Pro</h2>
-</div>
+        <div class="game" onclick="openGame('drift-hunters-main/index.html')" data-title="Drift Hunters Pro">
+            <img src="https://www.onlinegames.io/media/posts/397/responsive/Drift-Hunters-Pro-xs.jpg" alt="Drift Hunters Pro">
+            <h2 class="game-title">Drift Hunters Pro</h2>
+        </div>
 
-<!-- Moto X3M Game card -->
-<div class="game" onclick="openGame('motox3m/index.html')" data-title="Moto X3M">
-    <img src="https://th.bing.com/th/id/OIP.T--X7b4J4Zfej4Pvwi5KbwHaHa?rs=1&pid=ImgDetMain" alt="Moto X3M">
-    <h2 class="game-title">Moto X3M</h2>
-</div>
+        <div class="game" onclick="openGame('motox3m/index.html')" data-title="Moto X3M">
+            <img src="https://th.bing.com/th/id/OIP.T--X7b4J4Zfej4Pvwi5KbwHaHa?rs=1&pid=ImgDetMain" alt="Moto X3M">
+            <h2 class="game-title">Moto X3M</h2>
+        </div>
 
-<!-- Moto X3M Pool Game card -->
-<div class="game" onclick="openGame('motox3m-pool/index.html')" data-title="Moto X3M Pool">
-    <img src="https://a.silvergames.com/j/b/moto-x3m-5-pool-party.jpg" alt="Moto X3M">
-    <h2 class="game-title">Moto X3M Pool</h2>
-</div>
+        <div class="game" onclick="openGame('motox3m-pool/index.html')" data-title="Moto X3M Pool">
+            <img src="https://a.silvergames.com/j/b/moto-x3m-5-pool-party.jpg" alt="Moto X3M Pool">
+            <h2 class="game-title">Moto X3M Pool</h2>
+        </div>
 
-<!-- Moto X3M Spooky Game card -->
-<div class="game" onclick="openGame('motox3m-spooky/index.html')" data-title="Moto X3M Spooky">
-    <img src="https://img.poki.com/cdn-cgi/image/width=600,height=600,fit=cover,g=0.48x0.46,f=auto/3f8a297822df891a1c158576b6461014.png" alt="Moto X3M">
-    <h2 class="game-title">Moto X3M Spooky</h2>
-</div>
+        <div class="game" onclick="openGame('motox3m-spooky/index.html')" data-title="Moto X3M Spooky">
+            <img src="https://img.poki.com/cdn-cgi/image/width=600,height=600,fit=cover,g=0.48x0.46,f=auto/3f8a297822df891a1c158576b6461014.png" alt="Moto X3M Spooky">
+            <h2 class="game-title">Moto X3M Spooky</h2>
+        </div>
 
-<!-- Moto X3M Winter Game card -->
-<div class="game" onclick="openGame('motox3m-winter/index.html')" data-title="Moto X3M Winter">
-    <img src="https://kingal.net/wp-content/uploads/2022/09/Moto-X3M-4.jpeg" alt="Moto X3M">
-    <h2 class="game-title">Moto X3M Winter</h2>
-</div>
+        <div class="game" onclick="openGame('motox3m-winter/index.html')" data-title="Moto X3M Winter">
+            <img src="https://kingal.net/wp-content/uploads/2022/09/Moto-X3M-4.jpeg" alt="Moto X3M Winter">
+            <h2 class="game-title">Moto X3M Winter</h2>
+        </div>
 
-<!-- Retrobowl Game card -->
-<div class="game" onclick="openGame('retrobowl/index.html')" data-title="Retrobowl">
-    <img src="https://play-lh.googleusercontent.com/WRM5Y1xZmzcCP1YtO5zl6G2g7CU5c5ZfjX4UVrgi1bpNgkfy-wuB-bQx3kkeRfaGYQ" alt="Retrobowl">
-    <h2 class="game-title">Retrobowl</h2>
-</div>
+        <div class="game" onclick="openGame('retrobowl/index.html')" data-title="Retrobowl">
+            <img src="https://play-lh.googleusercontent.com/WRM5Y1xZmzcCP1YtO5zl6G2g7CU5c5ZfjX4UVrgi1bpNgkfy-wuB-bQx3kkeRfaGYQ" alt="Retrobowl">
+            <h2 class="game-title">Retrobowl</h2>
+        </div>
 
-<!-- Roof Top Snipers 2 Game card -->
-<div class="game" onclick="openGame('rooftopsnipers2/index.html')" data-title="Roof Top Snipers 2">
-    <img src="https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,g=0.5x0.5,f=auto/895b299e7e49558ca383b23648314860.png" alt="Roof Top Snipers 2">
-    <h2 class="game-title">Roof Top Snipers 2</h2>
-</div>
+        <div class="game" onclick="openGame('rooftopsnipers2/index.html')" data-title="Roof Top Snipers 2">
+            <img src="https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,g=0.5x0.5,f=auto/895b299e7e49558ca383b23648314860.png" alt="Roof Top Snipers 2">
+            <h2 class="game-title">Roof Top Snipers 2</h2>
+        </div>
 
-<!-- Scrap Metal Game card -->
-<div class="game" onclick="openGame('scrapmetal/index.html')" data-title="Scrap Metal">
-    <img src="https://www.ubg4all.com/thumbs/scrap-metal-unblocked-splash.webp" alt="Scrap Metal">
-    <h2 class="game-title">Scrap Metal</h2>
-</div>
-</div>       
- 
+        <div class="game" onclick="openGame('scrapmetal/index.html')" data-title="Scrap Metal">
+            <img src="https://www.ubg4all.com/thumbs/08/scrap-metal-2.png" alt="Scrap Metal">
+            <h2 class="game-title">Scrap Metal</h2>
+        </div>
+    </div>
+
     <div class="game-container" id="gameContainer">
         <button class="close-btn" onclick="closeGame()">X</button>
         <iframe id="gameIframe"></iframe>
