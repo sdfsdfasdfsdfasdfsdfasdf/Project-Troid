@@ -213,35 +213,23 @@
     <img src="https://www.ubg4all.com/thumbs/scrap-metal-unblocked-splash.webp" alt="Scrap Metal">
     <h2 class="game-title">Scrap Metal</h2>
 </div>
-    </div>       
+</div>       
  
     <div class="game-container" id="gameContainer">
-        <button class="close-btn" onclick="closeGame()">Close Game</button>
+        <button class="close-btn" onclick="closeGame()">X</button>
         <iframe id="gameIframe"></iframe>
     </div>
 
     <script>
         function openGame(gameUrl) {
-            // Display the game container and load the game inside the iframe
             document.getElementById("gameContainer").style.display = "block";
             document.getElementById("gameIframe").src = gameUrl;
         }
 
-.close-btn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: transparent; /* Transparent background */
-    color: red; /* Red "X" */
-    border: none;
-    font-size: 30px; /* Bigger "X" */
-    cursor: pointer;
-}
-
-.close-btn:hover {
-    color: darkred; /* Darker red on hover */
-}
-
+        function closeGame() {
+            document.getElementById("gameContainer").style.display = "none";
+            document.getElementById("gameIframe").src = "";
+        }
 
         function filterGames() {
             const query = document.getElementById("searchInput").value.toLowerCase();
@@ -255,3 +243,4 @@
     </script>
 
 </body>
+</html>
